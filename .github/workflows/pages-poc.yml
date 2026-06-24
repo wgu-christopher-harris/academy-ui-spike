@@ -113,6 +113,27 @@ jobs:
             cp "gh-pages/${app}/index.html" "gh-pages/${app}/404.html"
           done
 
+      - name: Verify affected app folders
+        if: steps.affected-apps.outputs.apps != ''
+        run: |
+          REPOSITORY_NAME="${GITHUB_REPOSITORY#*/}"
+
+          for app in ${{ steps.affected-apps.outputs.apps }}; do
+            EXPECTED_BASE="<base href=\"/${REPOSITORY_NAME}/${app}/\""
+
+            if ! grep -q "$EXPECTED_BASE" "gh-pages/${app}/index.html"; then
+              echo "Expected ${EXPECTED_BASE} in gh-pages/${app}/index.html"
+              sed -n '1,40p' "gh-pages/${app}/index.html"
+              exit 1
+            fi
+
+            if ! find "gh-pages/${app}" -maxdepth 1 -name 'styles-*.css' | grep -q .; then
+              echo "Expected a styles-*.css file in gh-pages/${app}"
+              find "gh-pages/${app}" -maxdepth 1 -type f | sort
+              exit 1
+            fi
+          done
+
       - name: Publish affected app folders
         if: steps.affected-apps.outputs.apps != ''
         run: |
