@@ -1,0 +1,73 @@
+name: GitHub Pages POC
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build enrollment
+        run: npx nx build enrollment --configuration=prod --base-href=/${{ github.event.repository.name }}/enrollment/
+
+      - name: Build student portal
+        run: npx nx build student-portal --configuration=prod --base-href=/${{ github.event.repository.name }}/student-portal/
+
+      - name: Build style guide
+        run: npx nx build style-guide --configuration=prod --base-href=/${{ github.event.repository.name }}/style-guide/
+
+      - name: Assemble Pages artifact
+        run: |
+          mkdir -p dist/pages/enrollment dist/pages/student-portal dist/pages/style-guide
+          cp -R dist/apps/enrollment/browser/. dist/pages/enrollment/
+          cp -R dist/apps/student-portal/browser/. dist/pages/student-portal/
+          cp -R dist/apps/style-guide/browser/. dist/pages/style-guide/
+
+      - name: Add fallback pages
+        run: |
+          cp dist/pages/enrollment/index.html dist/pages/enrollment/404.html
+          cp dist/pages/student-portal/index.html dist/pages/student-portal/404.html
+          cp dist/pages/style-guide/index.html dist/pages/style-guide/404.html
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist/pages
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
