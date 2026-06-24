@@ -1,0 +1,13 @@
+{
+  "name": "platform-http",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/platform/http/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": ["scope:platform", "type:data-access"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

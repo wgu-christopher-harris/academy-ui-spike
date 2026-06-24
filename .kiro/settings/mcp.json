@@ -1,0 +1,42 @@
+{
+  "mcpServers": {
+    "angular-cli": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@angular/cli",
+        "mcp"
+      ]
+    },
+    "atlassian": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.atlassian.com/v1/mcp/authv2"
+      ],
+      "autoApprove": [
+        "searchJiraIssuesUsingJql",
+        "getAccessibleAtlassianResources"
+      ]
+    },
+    "nx-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "nx-mcp@latest"
+      ]
+    },
+    "primeng": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@primeng/mcp"
+      ]
+    },
+    "figma": {
+      "url": "https://mcp.figma.com/mcp",
+      "type": "http"
+    }
+  }
+}

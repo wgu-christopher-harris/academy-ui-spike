@@ -1,0 +1,158 @@
+{
+  "name": "academy-shell",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "acad",
+  "sourceRoot": "apps/academy-shell/src",
+  "tags": [
+    "scope:academy-shell",
+    "type:app"
+  ],
+  "targets": {
+    "build": {
+      "executor": "@angular/build:application",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/apps/academy-shell",
+        "browser": "apps/academy-shell/src/main.ts",
+        "tsConfig": "apps/academy-shell/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/academy-shell/public"
+          }
+        ],
+        "styles": [
+          "apps/academy-shell/src/styles.css"
+        ]
+      },
+      "configurations": {
+        "local": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "define": {
+            "process.env.ACADEMY_APP_NAME": "\"academy-shell\"",
+            "process.env.ACADEMY_BFF_BASE_URL": "\"http://localhost:3010\"",
+            "process.env.ACADEMY_AUTH_ISSUER_URL": "\"http://localhost:3010/auth\"",
+            "process.env.ACADEMY_FEATURE_FLAGS_ENABLED": "\"false\"",
+            "process.env.ACADEMY_OBSERVABILITY_ENABLED": "\"false\"",
+            "process.env.ACADEMY_SHELL_URL": "\"http://localhost:4200\"",
+            "process.env.ACADEMY_ENROLLMENT_URL": "\"http://localhost:4201\"",
+            "process.env.ACADEMY_STUDENT_PORTAL_URL": "\"http://localhost:4202\""
+          }
+        },
+        "dev": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "define": {
+            "process.env.ACADEMY_APP_NAME": "\"academy-shell\"",
+            "process.env.ACADEMY_BFF_BASE_URL": "\"/api\"",
+            "process.env.ACADEMY_AUTH_ISSUER_URL": "\"/auth\"",
+            "process.env.ACADEMY_FEATURE_FLAGS_ENABLED": "\"true\"",
+            "process.env.ACADEMY_OBSERVABILITY_ENABLED": "\"true\"",
+            "process.env.ACADEMY_SHELL_URL": "\"https://dev.academy.wgu.edu\"",
+            "process.env.ACADEMY_ENROLLMENT_URL": "\"https://dev-enroll.academy.wgu.edu\"",
+            "process.env.ACADEMY_STUDENT_PORTAL_URL": "\"https://dev-student.academy.wgu.edu\""
+          }
+        },
+        "stage": {
+          "optimization": true,
+          "extractLicenses": true,
+          "sourceMap": false,
+          "outputHashing": "all",
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kb",
+              "maximumError": "8kb"
+            }
+          ],
+          "define": {
+            "process.env.ACADEMY_APP_NAME": "\"academy-shell\"",
+            "process.env.ACADEMY_BFF_BASE_URL": "\"/api\"",
+            "process.env.ACADEMY_AUTH_ISSUER_URL": "\"/auth\"",
+            "process.env.ACADEMY_FEATURE_FLAGS_ENABLED": "\"true\"",
+            "process.env.ACADEMY_OBSERVABILITY_ENABLED": "\"true\"",
+            "process.env.ACADEMY_SHELL_URL": "\"https://stage.academy.wgu.edu\"",
+            "process.env.ACADEMY_ENROLLMENT_URL": "\"https://stage-enroll.academy.wgu.edu\"",
+            "process.env.ACADEMY_STUDENT_PORTAL_URL": "\"https://stage-student.academy.wgu.edu\""
+          }
+        },
+        "prod": {
+          "optimization": true,
+          "extractLicenses": true,
+          "sourceMap": false,
+          "outputHashing": "all",
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kb",
+              "maximumError": "8kb"
+            }
+          ],
+          "define": {
+            "process.env.ACADEMY_APP_NAME": "\"academy-shell\"",
+            "process.env.ACADEMY_BFF_BASE_URL": "\"/api\"",
+            "process.env.ACADEMY_AUTH_ISSUER_URL": "\"/auth\"",
+            "process.env.ACADEMY_FEATURE_FLAGS_ENABLED": "\"true\"",
+            "process.env.ACADEMY_OBSERVABILITY_ENABLED": "\"true\"",
+            "process.env.ACADEMY_SHELL_URL": "\"https://academy.wgu.edu\"",
+            "process.env.ACADEMY_ENROLLMENT_URL": "\"https://enroll.academy.wgu.edu\"",
+            "process.env.ACADEMY_STUDENT_PORTAL_URL": "\"https://student.academy.wgu.edu\""
+          }
+        }
+      },
+      "defaultConfiguration": "prod"
+    },
+    "serve": {
+      "continuous": true,
+      "executor": "@angular/build:dev-server",
+      "options": {
+        "port": 4200
+      },
+      "configurations": {
+        "local": {
+          "buildTarget": "academy-shell:build:local"
+        },
+        "dev": {
+          "buildTarget": "academy-shell:build:dev"
+        },
+        "stage": {
+          "buildTarget": "academy-shell:build:stage"
+        },
+        "prod": {
+          "buildTarget": "academy-shell:build:prod"
+        }
+      },
+      "defaultConfiguration": "local"
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "serve-static": {
+      "continuous": true,
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "academy-shell:build:prod",
+        "port": 4200,
+        "staticFilePath": "dist/apps/academy-shell/browser",
+        "spa": true
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "platform-primeng",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/platform/primeng/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": ["scope:platform", "type:ui"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "paths": {
+      "@academy/enrollment/feature-shell": [
+        "./libs/enrollment/feature-shell/src/index.ts"
+      ],
+      "@academy/enrollment/data-access": [
+        "./libs/enrollment/data-access/src/index.ts"
+      ],
+      "@academy/enrollment/state": ["./libs/enrollment/state/src/index.ts"],
+      "@academy/enrollment/ui": ["./libs/enrollment/ui/src/index.ts"],
+      "@academy/platform/auth": ["./libs/platform/auth/src/index.ts"],
+      "@academy/platform/http": ["./libs/platform/http/src/index.ts"],
+      "@academy/platform/config": ["./libs/platform/config/src/index.ts"],
+      "@academy/shared/ui": ["./libs/shared/ui/src/index.ts"],
+      "@academy/shared/util": ["./libs/shared/util/src/index.ts"],
+      "@academy/shared/testing": ["./libs/shared/testing/src/index.ts"],
+      "@academy/shared/models": ["./libs/shared/models/src/index.ts"],
+      "@academy/platform/primeng": ["./libs/platform/primeng/src/index.ts"],
+      "academy-plugin": ["./tools/academy-plugin/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

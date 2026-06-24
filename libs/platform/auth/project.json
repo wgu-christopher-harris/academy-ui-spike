@@ -1,0 +1,13 @@
+{
+  "name": "platform-auth",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/platform/auth/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": ["scope:platform", "type:util"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

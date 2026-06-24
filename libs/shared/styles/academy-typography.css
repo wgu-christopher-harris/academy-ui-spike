@@ -1,0 +1,156 @@
+:root {
+  --academy-font-family: "Lato", "Helvetica Neue", Arial, sans-serif;
+  --academy-font-weight-regular: 400;
+  --academy-font-weight-semibold: 600;
+  --academy-font-weight-bold: 700;
+
+  --academy-type-h1-size: 3rem;
+  --academy-type-h1-line-height: 3.25rem;
+  --academy-type-h1-letter-spacing: -0.046875rem;
+
+  --academy-type-h2-size: 2.5rem;
+  --academy-type-h2-line-height: 2.75rem;
+  --academy-type-h2-letter-spacing: 0;
+
+  --academy-type-h3-size: 2.125rem;
+  --academy-type-h3-line-height: 2.25rem;
+  --academy-type-h3-letter-spacing: 0;
+
+  --academy-type-h4-size: 1.75rem;
+  --academy-type-h4-line-height: 2rem;
+  --academy-type-h4-letter-spacing: 0;
+
+  --academy-type-h5-size: 1.5rem;
+  --academy-type-h5-line-height: 1.75rem;
+  --academy-type-h5-letter-spacing: 0.015625rem;
+
+  --academy-type-h6-size: 1.25rem;
+  --academy-type-h6-line-height: 1.5rem;
+  --academy-type-h6-letter-spacing: 0;
+
+  --academy-type-body-size: 1rem;
+  --academy-type-body-line-height: 1.5rem;
+  --academy-type-body-letter-spacing: 0;
+
+  --academy-type-small-size: 0.75rem;
+  --academy-type-small-line-height: 1rem;
+  --academy-type-small-letter-spacing: 0.025rem;
+}
+
+@theme {
+  --font-academy: var(--academy-font-family);
+  --font-sans: var(--academy-font-family);
+
+  --text-academy-h1: var(--academy-type-h1-size);
+  --text-academy-h1--line-height: var(--academy-type-h1-line-height);
+  --text-academy-h1--letter-spacing: var(--academy-type-h1-letter-spacing);
+
+  --text-academy-h2: var(--academy-type-h2-size);
+  --text-academy-h2--line-height: var(--academy-type-h2-line-height);
+  --text-academy-h2--letter-spacing: var(--academy-type-h2-letter-spacing);
+
+  --text-academy-h3: var(--academy-type-h3-size);
+  --text-academy-h3--line-height: var(--academy-type-h3-line-height);
+  --text-academy-h3--letter-spacing: var(--academy-type-h3-letter-spacing);
+
+  --text-academy-h4: var(--academy-type-h4-size);
+  --text-academy-h4--line-height: var(--academy-type-h4-line-height);
+  --text-academy-h4--letter-spacing: var(--academy-type-h4-letter-spacing);
+
+  --text-academy-h5: var(--academy-type-h5-size);
+  --text-academy-h5--line-height: var(--academy-type-h5-line-height);
+  --text-academy-h5--letter-spacing: var(--academy-type-h5-letter-spacing);
+
+  --text-academy-h6: var(--academy-type-h6-size);
+  --text-academy-h6--line-height: var(--academy-type-h6-line-height);
+  --text-academy-h6--letter-spacing: var(--academy-type-h6-letter-spacing);
+
+  --text-academy-body: var(--academy-type-body-size);
+  --text-academy-body--line-height: var(--academy-type-body-line-height);
+  --text-academy-body--letter-spacing: var(--academy-type-body-letter-spacing);
+
+  --text-academy-small: var(--academy-type-small-size);
+  --text-academy-small--line-height: var(--academy-type-small-line-height);
+  --text-academy-small--letter-spacing: var(--academy-type-small-letter-spacing);
+}
+
+@layer base {
+  html {
+    font-family: var(--academy-font-family);
+  }
+
+  body {
+    color: var(--p-text-color, var(--academy-grayscale-900));
+    font-family: var(--academy-font-family);
+    font-size: var(--academy-type-body-size);
+    font-weight: var(--academy-font-weight-regular);
+    letter-spacing: var(--academy-type-body-letter-spacing);
+    line-height: var(--academy-type-body-line-height);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+  }
+
+  h1 {
+    font-size: var(--academy-type-h1-size);
+    font-weight: var(--academy-font-weight-semibold);
+    letter-spacing: var(--academy-type-h1-letter-spacing);
+    line-height: var(--academy-type-h1-line-height);
+  }
+
+  h2 {
+    font-size: var(--academy-type-h2-size);
+    font-weight: var(--academy-font-weight-semibold);
+    letter-spacing: var(--academy-type-h2-letter-spacing);
+    line-height: var(--academy-type-h2-line-height);
+  }
+
+  h3 {
+    font-size: var(--academy-type-h3-size);
+    font-weight: var(--academy-font-weight-semibold);
+    letter-spacing: var(--academy-type-h3-letter-spacing);
+    line-height: var(--academy-type-h3-line-height);
+  }
+
+  h4 {
+    font-size: var(--academy-type-h4-size);
+    font-weight: var(--academy-font-weight-semibold);
+    letter-spacing: var(--academy-type-h4-letter-spacing);
+    line-height: var(--academy-type-h4-line-height);
+  }
+
+  h5 {
+    font-size: var(--academy-type-h5-size);
+    font-weight: var(--academy-font-weight-semibold);
+    letter-spacing: var(--academy-type-h5-letter-spacing);
+    line-height: var(--academy-type-h5-line-height);
+  }
+
+  h6 {
+    font-size: var(--academy-type-h6-size);
+    font-weight: var(--academy-font-weight-semibold);
+    letter-spacing: var(--academy-type-h6-letter-spacing);
+    line-height: var(--academy-type-h6-line-height);
+  }
+
+  p {
+    font-size: var(--academy-type-body-size);
+    font-weight: var(--academy-font-weight-regular);
+    letter-spacing: var(--academy-type-body-letter-spacing);
+    line-height: var(--academy-type-body-line-height);
+  }
+
+  small {
+    font-size: var(--academy-type-small-size);
+    font-weight: var(--academy-font-weight-regular);
+    letter-spacing: var(--academy-type-small-letter-spacing);
+    line-height: var(--academy-type-small-line-height);
+  }
+}

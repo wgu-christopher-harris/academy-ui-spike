@@ -1,0 +1,13 @@
+{
+  "name": "enrollment-state",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/enrollment/state/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": ["scope:enrollment", "type:state"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

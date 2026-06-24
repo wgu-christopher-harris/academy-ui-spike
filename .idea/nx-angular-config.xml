@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="NxAngularConfigService" workspaceLocation="file://$PROJECT_DIR$/nx.json">
+    <projects>
+      <project name="academy-plugin" file="file://$PROJECT_DIR$/tools/academy-plugin/project.json" />
+      <project name="academy-shell" file="file://$PROJECT_DIR$/apps/academy-shell/project.json" />
+      <project name="enrollment" file="file://$PROJECT_DIR$/apps/enrollment/project.json" />
+      <project name="enrollment-data-access" file="file://$PROJECT_DIR$/libs/enrollment/data-access/project.json" />
+      <project name="enrollment-feature-shell" file="file://$PROJECT_DIR$/libs/enrollment/feature-shell/project.json" />
+      <project name="enrollment-state" file="file://$PROJECT_DIR$/libs/enrollment/state/project.json" />
+      <project name="enrollment-ui" file="file://$PROJECT_DIR$/libs/enrollment/ui/project.json" />
+      <project name="platform-auth" file="file://$PROJECT_DIR$/libs/platform/auth/project.json" />
+      <project name="platform-config" file="file://$PROJECT_DIR$/libs/platform/config/project.json" />
+      <project name="platform-http" file="file://$PROJECT_DIR$/libs/platform/http/project.json" />
+      <project name="platform-primeng" file="file://$PROJECT_DIR$/libs/platform/primeng/project.json" />
+      <project name="shared-models" file="file://$PROJECT_DIR$/libs/shared/models/project.json" />
+      <project name="shared-testing" file="file://$PROJECT_DIR$/libs/shared/testing/project.json" />
+      <project name="shared-ui" file="file://$PROJECT_DIR$/libs/shared/ui/project.json" />
+      <project name="shared-util" file="file://$PROJECT_DIR$/libs/shared/util/project.json" />
+      <project name="student-portal" file="file://$PROJECT_DIR$/apps/student-portal/project.json" />
+      <project name="style-guide" file="file://$PROJECT_DIR$/apps/style-guide/project.json" />
+    </projects>
+  </component>
+</project>

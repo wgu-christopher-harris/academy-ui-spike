@@ -1,0 +1,3 @@
+display_name: No Nx Validation
+short_description: Avoids Nx validation commands in academy-spike unless explicitly requested.
+default_prompt: Follow the repo rule that Nx test/build/lint/serve commands must not be run unless the user explicitly asks for that exact validation in the current turn.

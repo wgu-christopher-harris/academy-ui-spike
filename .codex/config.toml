@@ -1,0 +1,23 @@
+[mcp_servers.angular-cli]
+command = "npx"
+args = ["-y", "@angular/cli", "mcp"]
+
+[mcp_servers.atlassian]
+command = "npx"
+args = ["-y", "mcp-remote", "https://mcp.atlassian.com/v1/mcp/authv2"]
+auto_approve = ["searchJiraIssuesUsingJql", "getAccessibleAtlassianResources"]
+
+[mcp_servers.nx-mcp]
+type="stdio"
+command = "npx"
+args = ["nx-mcp@latest"]
+
+[mcp_servers.primeng]
+command = "npx"
+args = ["-y", "@primeng/mcp"]
+
+[mcp_servers.figma]
+url = "https://mcp.figma.com/mcp"
+
+[mcp_servers.figma.tools.use_figma]
+approval_mode = "approve"
