@@ -1,5 +1,6 @@
 import { definePreset } from '@primeuix/themes';
 import Material from '@primeuix/themes/material';
+import { academyButtons } from './components';
 
 // Color values live in libs/shared/styles/academy-colors.css so Tailwind and PrimeNG share one source.
 const academyPrimary = {
@@ -254,5 +255,8 @@ export const academyPrimeNgPreset = definePreset(Material, {
         },
       },
     },
+  },
+  components: {
+    button: academyButtons,
   },
 });

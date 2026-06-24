@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcome } from './nx-welcome';
+import {ButtonModule} from "primeng/button";
+import {DividerModule} from "primeng/divider";
 
 @Component({
-  imports: [NxWelcome, RouterModule],
+  imports: [RouterModule, ButtonModule, DividerModule],
   selector: 'acad-student-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',

@@ -1,2 +1,18 @@
-<h2>Welcome to the WGU Student Portal</h2>
+<div class="container mx-auto flex flex-col space-y-4">
+    <h2>Welcome to the WGU Student Portal</h2>
+    <p-button [label]="'Click me!'" />
+    <p-button [label]="'Click me!'" text />
+    <p-button [label]="'Click me!'" outlined />
+    <p-button [label]="'Click me!'" [severity]="'secondary'" />
+    <p-divider />
+    <h4>Large Buttons</h4>
+    <p-button [label]="'Click me!'" [size]="'large'" />
+    <p-button [label]="'Click me!'" text [size]="'large'" />
+    <p-button [label]="'Click me!'" outlined [size]="'large'" />
+    <p-divider />
+    <h4>Small Buttons</h4>
+    <p-button [label]="'Click me!'" [size]="'small'" />
+    <p-button [label]="'Click me!'" text [size]="'small'" />
+    <p-button [label]="'Click me!'" outlined [size]="'small'" />
+</div>
 <router-outlet></router-outlet>
