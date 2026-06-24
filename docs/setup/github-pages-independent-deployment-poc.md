@@ -53,21 +53,21 @@ Folder: /
 
 Because GitHub Pages project sites are served under `/<repo>/`, each Angular app must be built with a path-specific base href.
 
-For a repository named `academy-spike`, the builds should use:
+For a repository named `academy-ui-spike`, the builds should use:
 
 ```bash
-nx build enrollment --configuration=prod,github-pages
-nx build student-portal --configuration=prod,github-pages
-nx build style-guide --configuration=prod,github-pages
+nx build enrollment --configuration=prod --base-href=/academy-ui-spike/enrollment/
+nx build student-portal --configuration=prod --base-href=/academy-ui-spike/student-portal/
+nx build style-guide --configuration=prod --base-href=/academy-ui-spike/style-guide/
 ```
 
-Each app's `github-pages` build configuration owns the app-specific `baseHref`. If the repository name changes, update those `baseHref` values in each app's `project.json`.
+If the repository name changes, replace `academy-ui-spike` in each `--base-href` value.
 
 ## Manual Proof
 
 Use this flow for the first proof before automating anything:
 
-1. Build all three applications with the `prod,github-pages` configuration.
+1. Build all three applications with their GitHub Pages base href.
 2. Copy each `browser` output folder into its matching app folder on the `gh-pages` branch.
 3. Push the `gh-pages` branch.
 4. Open each app URL.
@@ -180,8 +180,10 @@ jobs:
       - name: Build affected apps
         if: steps.affected-apps.outputs.apps != ''
         run: |
+          REPOSITORY_NAME="${GITHUB_REPOSITORY#*/}"
+
           for app in ${{ steps.affected-apps.outputs.apps }}; do
-            npx nx build "$app" --configuration=prod,github-pages
+            npx nx build "$app" --configuration=prod --base-href="/${REPOSITORY_NAME}/${app}/"
           done
 
       - name: Replace affected app folders

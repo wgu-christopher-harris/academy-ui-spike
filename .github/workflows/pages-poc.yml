@@ -95,8 +95,10 @@ jobs:
       - name: Build affected apps
         if: steps.affected-apps.outputs.apps != ''
         run: |
+          REPOSITORY_NAME="${GITHUB_REPOSITORY#*/}"
+
           for app in ${{ steps.affected-apps.outputs.apps }}; do
-            npx nx build "$app" --configuration=prod,github-pages
+            npx nx build "$app" --configuration=prod --base-href="/${REPOSITORY_NAME}/${app}/"
           done
 
       - name: Replace affected app folders
