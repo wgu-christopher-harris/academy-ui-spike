@@ -115,6 +115,9 @@
             "process.env.ACADEMY_ENROLLMENT_URL": "\"https://enroll.academy.wgu.edu\"",
             "process.env.ACADEMY_STUDENT_PORTAL_URL": "\"https://student.academy.wgu.edu\""
           }
+        },
+        "github-pages": {
+          "baseHref": "/academy-spike/student-portal/"
         }
       },
       "defaultConfiguration": "prod"
